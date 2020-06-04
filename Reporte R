@@ -1,0 +1,34 @@
+(“Francisco Guerrero”, “Gloriana Mendez”, “Juan Alfaro”, “Felix Hernandez”, “Nathalia Leon”)
+28-05-2020
+library(dplyr)
+library(dlookr)
+#1- Para el laboratorio se van a utilizar los datos:
+
+df1 <- data.frame(estudiante = c(10,8,13,9,11,14,6,4,12,7,5),
+promedio = c(9.14,8.14,8.74,8.77,9.26,8.1,6.13,3.1,9.13,7.26,4.74))
+#Calculos
+Calculos <- df1 %>%
+              summarise(mean(df1$estudiante),
+                        mean(df1$promedio),
+                        sd(df1$estudiante),
+                        sd(df1$promedio),
+                        cor(x=df1$estudiante, y = df1$promedio)
+              )
+print(Calculos)
+##   mean(df1$estudiante) mean(df1$promedio) sd(df1$estudiante) sd(df1$promedio)
+## 1                    9           7.500909           3.316625         2.031657
+##   cor(x = df1$estudiante, y = df1$promedio)
+## 1                                 0.8162365
+#scatterplot
+plot(x= df1$estudiante, y = df1$promedio , 
+     main = "Scatterplot entre variables estudiante y promedio",
+     xlab = "estudiante", 
+     ylab = "promedio",
+     pch = 19, frame = FALSE)
+
+
+En relación con el análisis se presenta una correlación de 0.8162365 
+lo cual indica que es casi una correlación positiva alta. Además se analizaron los resultados 
+de todos los grupos; entre los grupos II y III son iguales en su correlación.
+
+Grupo I: 0.8164205 Grupo II: 0.8162365 Grupo III: 0.8162365 Grupo IV: 0.8165214
